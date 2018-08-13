@@ -1,0 +1,36 @@
+ManifestFileVersion: 0
+CRC: 4225656362
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: ba86ce82b7e24b615360a066ef26f9d0
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 9527f7f05e2d22a89db70340d2a504bb
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 64
+  Script: {instanceID: 0}
+- Class: 82
+  Script: {instanceID: 0}
+- Class: 84
+  Script: {instanceID: 0}
+- Class: 328
+  Script: {instanceID: 0}
+Assets:
+- Assets/Prefabs/VideoSaraivaRezende.prefab
+Dependencies: []

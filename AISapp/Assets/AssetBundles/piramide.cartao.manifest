@@ -1,0 +1,44 @@
+ManifestFileVersion: 0
+CRC: 4124761733
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 2c2517cd8467b773e02dcde53600eb4d
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 3b48a8597dc99853172318d21ad919f4
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 64
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 82
+  Script: {instanceID: 0}
+- Class: 84
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 328
+  Script: {instanceID: 0}
+Assets:
+- Assets/Prefabs/VideoPiramide.prefab
+Dependencies: []

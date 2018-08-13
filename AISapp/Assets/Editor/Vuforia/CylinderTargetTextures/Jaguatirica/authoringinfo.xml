@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VuforiaUnityInfo version="7.0">
+    <TargetSet version="5.0" toolVersion="2.7.4">
+        <CylinderTarget name="jaguarete" version="3.0" targetId="43c0361086aa49bea36c44c203373ea0" sideLength="0.095000" topDiameter="0.076400" bottomDiameter="0.076400" sideImage="jaguarete.Body_scaled.jpg"/>
+    </TargetSet>
+</VuforiaUnityInfo>
