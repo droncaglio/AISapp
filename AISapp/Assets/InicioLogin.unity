@@ -1309,9 +1309,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39cb787f37eba524a820bd7bbff5cc13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  email: {fileID: 1210938507}
-  senha: {fileID: 1998176794}
-  loading: {fileID: 1041564256}
 --- !u!114 &1293813206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1323,10 +1320,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5730dd39cb865ca479df4a64f1341504, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  emailText: {fileID: 1932634069}
-  passwordText: {fileID: 389195776}
+  emailText: {fileID: 1210938507}
+  passwordText: {fileID: 1998176794}
   loginButton: {fileID: 1470566807}
   criarButton: {fileID: 1320300769}
+  loading: {fileID: 1041564256}
   erro: {fileID: 500379649}
 --- !u!1 &1320300767
 GameObject:

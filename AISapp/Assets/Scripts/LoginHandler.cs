@@ -27,21 +27,38 @@ public class LoginHandler : MonoBehaviour {
     protected Dictionary<string, Firebase.Auth.FirebaseUser> userByAuth =
       new Dictionary<string, Firebase.Auth.FirebaseUser>();
     private string logText = "";
-    public Text emailText;
-    public Text passwordText;
+    public InputField emailText;
+    public InputField passwordText;
     public Button loginButton;
     public Button criarButton;
     protected string email = "";
     protected string password = "";
     protected string displayName = "";
     private bool fetchingToken = false;
-
+    public GameObject loading;
 
     public Text erro;
     string errorCode = "";
 
     const int kMaxLogSize = 16382;
     Firebase.DependencyStatus dependencyStatus = Firebase.DependencyStatus.UnavailableOther;
+
+
+    IEnumerator LoadYourAsyncScene()
+    {
+
+        PlayerPrefs.SetString("email", emailText.text);
+        PlayerPrefs.SetString("senha", passwordText.text);
+
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("ARbundle");
+
+        loading.SetActive(true);
+        // Wait until the asynchronous scene fully loads
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+    }
 
     // When the app starts, check to make sure that we have
     // the required dependencies to use Firebase, and if not,
@@ -66,6 +83,15 @@ public class LoginHandler : MonoBehaviour {
         auth.StateChanged += AuthStateChanged;
         auth.IdTokenChanged += IdTokenChanged;
         AuthStateChanged(this, null);
+        
+        if (PlayerPrefs.GetInt("lembrarEmail") == 1)
+        {
+            SigninAsync();
+        }
+        else if (PlayerPrefs.GetInt("lembrarFace") == 1)
+        {
+            LogInFacebook();
+        }
     }
 
     // Exit if escape (or back, on mobile) is pressed.
@@ -132,7 +158,7 @@ public class LoginHandler : MonoBehaviour {
                 break;
             case "Sign-in completed":
                 erro.text = "Login feito com sucesso.";
-                SceneManager.LoadSceneAsync("ARbundle");
+                StartCoroutine(LoadYourAsyncScene());
                 break;
             case "User profile completed":
                 erro.text = "Conta criada com sucesso. Logando...";
@@ -194,8 +220,8 @@ public class LoginHandler : MonoBehaviour {
                 DebugLog("Signed in " + user.UserId);              
                 displayName = user.DisplayName ?? "";
                 DisplayDetailedUserInfo(user, 1);
-                PlayerPrefs.SetInt("lembrar", 1);
-                SceneManager.LoadSceneAsync("ARbundle");
+                PlayerPrefs.SetInt("lembrarEmail", 1);
+                StartCoroutine(LoadYourAsyncScene());
             }
         }
     }
@@ -364,6 +390,7 @@ public class LoginHandler : MonoBehaviour {
         {
             // Signal an app activation App Event
             FB.ActivateApp();
+
             // Continue with Facebook SDK
             // ...
         }
@@ -389,6 +416,9 @@ public class LoginHandler : MonoBehaviour {
 
     private void Awake()
     {
+        emailText.text = PlayerPrefs.GetString("email", "");
+        passwordText.text = PlayerPrefs.GetString("senha", "");
+
         if (!FB.IsInitialized)
         {
             // Initialize the Facebook SDK
@@ -442,17 +472,11 @@ public class LoginHandler : MonoBehaviour {
                 DebugLog(errorCode);
             });
 
-            PlayerPrefs.SetInt("lembrar", 1);
-            SceneManager.LoadSceneAsync("ARbundle");
+            PlayerPrefs.SetInt("lembrarFace", 1);
+            StartCoroutine(LoadYourAsyncScene());
             // Print current access token's User ID
             Debug.Log(aToken.UserId);
 
-            // Print current access token's granted permissions
-            foreach (string perm in aToken.Permissions)
-            {
-                //debug.text = "Permission" + perm;
-                Debug.Log(perm);
-            }
         }
         else
         {

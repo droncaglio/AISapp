@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
+    <ImageTarget name="cartaoplaneta" size="1.000000 0.563425" />
     <ImageTarget name="SaraivaRezende" size="1.000000 1.124859" />
     <ImageTarget name="yuri" size="1.000000 1.815789" />
     <ImageTarget name="victor" size="1.000000 1.792880" />

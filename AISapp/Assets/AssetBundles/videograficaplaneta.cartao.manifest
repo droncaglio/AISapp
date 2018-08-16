@@ -1,0 +1,40 @@
+ManifestFileVersion: 0
+CRC: 2819088058
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 94ec447bc06e96c3cda75cdd3eaa3593
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 8a8e55e0eda25379b17a08feb88259eb
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 64
+  Script: {instanceID: 0}
+- Class: 82
+  Script: {instanceID: 0}
+- Class: 84
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 63fa2106464881d418c434c9fa886b69, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 328
+  Script: {instanceID: 0}
+Assets:
+- Assets/Prefabs/VideoCardPlaneta.prefab
+Dependencies: []
