@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 33427935246483364}
   - component: {fileID: 23169264115374724}
   - component: {fileID: 95505481190069358}
-  - component: {fileID: 114832606708150108}
   m_Layer: 0
   m_Name: VideoPiramideSaraiva
   m_TagString: Untagged
@@ -290,17 +289,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114832606708150108
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1099854746341986}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63fa2106464881d418c434c9fa886b69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!328 &328400935966949670
 VideoPlayer:
   m_ObjectHideFlags: 1
