@@ -33,7 +33,10 @@ public class AppManager : MonoBehaviour {
     AssetBundle[] asset;
     int poolCounter = 0;
     int indexAtual = 0;
-    
+
+    GameObject g;
+    GameObject a;
+
     public void ClearPrefs()
     {
         PlayerPrefs.DeleteAll();
@@ -85,6 +88,8 @@ public class AppManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        GameObject g = new GameObject();
+        GameObject a = new GameObject();
 
         poolBaixados = new GameObject[poolLimit];
         jaBaixou = new bool[imageTarget.Length];
@@ -151,6 +156,8 @@ public class AppManager : MonoBehaviour {
     public void TrackableLost(int index)
     {
         imageTarget[index].transform.GetChild(0).gameObject.SetActive(false);
+        panelLoading.SetActive(false);
+        panelLoading.transform.parent = null;
         buttonAction.interactable = false;
         buttonShare.interactable = false;
     }
@@ -175,16 +182,27 @@ public class AppManager : MonoBehaviour {
     IEnumerator DownloadAsset(int index)
     {
         panelLoading.SetActive(true);
+        panelLoading.transform.parent = imageTarget[index].transform;
+        panelLoading.transform.localScale = new Vector3(1, 1, 1);
+
+
         WWW www = new WWW(urlAsset[index]);
         yield return www;
-        Debug.Log("antes");
         AssetBundle assetBundle = www.assetBundle;
-        Debug.Log("depois");
-        GameObject g = Instantiate(assetBundle.LoadAsset(assetName[index]) as GameObject);
+
+        AssetBundleRequest request = assetBundle.LoadAssetAsync(assetName[index]);
+
+        while (!request.isDone)
+        {
+            yield return null;
+        }
+
+        g = Instantiate(assetBundle.LoadAsset(assetName[index]) as GameObject);
         g.transform.parent = imageTarget[index].transform;
         jaBaixou[index] = true;
-        Pool(g);
+
         panelLoading.SetActive(false);
+        panelLoading.transform.parent = null;
 
     }
 
