@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 using NatShareU;
+using UnityEngine.Networking;
+using System.IO;
 
 public class AppManager : MonoBehaviour {
 
@@ -185,11 +187,10 @@ public class AppManager : MonoBehaviour {
         panelLoading.transform.parent = imageTarget[index].transform;
         panelLoading.transform.localScale = new Vector3(1, 1, 1);
 
-
         WWW www = new WWW(urlAsset[index]);
         yield return www;
         AssetBundle assetBundle = www.assetBundle;
-
+        
         AssetBundleRequest request = assetBundle.LoadAssetAsync(assetName[index]);
 
         while (!request.isDone)

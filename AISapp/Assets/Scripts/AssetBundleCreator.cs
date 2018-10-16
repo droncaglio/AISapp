@@ -22,7 +22,7 @@ public class AssetBundleCreator : MonoBehaviour {
     static void BuildABsUncompressed()
     {
         //Build the AssetBundles in uncompressed build mode
-        BuildPipeline.BuildAssetBundles("Assets/AssetBundlesUncompressed", BuildAssetBundleOptions.UncompressedAssetBundle, BuildTarget.Android);
+        BuildPipeline.BuildAssetBundles("Assets/AssetBundles", BuildAssetBundleOptions.UncompressedAssetBundle, BuildTarget.Android);
     }
 
 }

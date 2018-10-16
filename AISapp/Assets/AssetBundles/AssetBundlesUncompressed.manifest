@@ -1,0 +1,37 @@
+ManifestFileVersion: 0
+CRC: 235237787
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: cubo.cubogira
+      Dependencies: {}
+    Info_1:
+      Name: onca.jaguarete
+      Dependencies: {}
+    Info_2:
+      Name: video.cartao
+      Dependencies: {}
+    Info_3:
+      Name: videosaraivarezende.anuncio
+      Dependencies: {}
+    Info_4:
+      Name: apartamento.cartao
+      Dependencies: {}
+    Info_5:
+      Name: piramide.cartao
+      Dependencies: {}
+    Info_6:
+      Name: piramidesaraiva.cartao
+      Dependencies: {}
+    Info_7:
+      Name: bananas.cartao
+      Dependencies: {}
+    Info_8:
+      Name: streetjunction.cartao
+      Dependencies: {}
+    Info_9:
+      Name: videograficaplaneta.cartao
+      Dependencies: {}
+    Info_10:
+      Name: videopiramidetrivelato.anuncio
+      Dependencies: {}

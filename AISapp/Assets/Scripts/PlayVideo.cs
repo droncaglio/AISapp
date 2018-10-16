@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
@@ -14,12 +15,14 @@ public class PlayVideo : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
+        
         v = this.GetComponent<VideoPlayer>();
 
-        for (int i = 1; i < debug.Length+1; i++)
-        {
-            v.errorReceived += VideoPlayer_errorReceived;
+        v.errorReceived += VideoPlayer_errorReceived;
+        v.Prepare();
 
+        for (int i = 1; i < debug.Length+1; i++)
+        {           
             Debug.Log("Canvas/PanelDebug/Panel/TextDebug" + i );
             debug[i-1] = GameObject.Find("Canvas/PanelDebug/Panel/TextDebug"+i).GetComponent<Text>();
         }
@@ -31,19 +34,25 @@ public class PlayVideo : MonoBehaviour {
         v.errorReceived -= VideoPlayer_errorReceived;//Unregister to avoid memory leaks
     }
 
+
+
+
+
+
     void Update()
     {
-        v.Play();
+       
+
         if (debug[0] != null)
         {
             if (v.isPlaying)
             {
                 debug[0].text = "video is playing";
             }
-            else if (!v.isPlaying)
+            else if (!v.isPlaying && v.isPrepared)
             {
                 debug[0].text = "video is not playing";
-                v.Stop();
+                v.Play();
                 
             }
 
@@ -54,16 +63,24 @@ public class PlayVideo : MonoBehaviour {
             }
             else
             {
-                debug[2].text = "video is not prepared";
+                debug[2].text = "video is not prepared tryimg to prepare";
                 v.Prepare();
+               
+
             }
             
 
             debug[1].text = v.frame.ToString();
         }
-        
+
+     
 
     }
+
+
+
+
+    public delegate void ErrorEventHandler(VideoPlayer source, string message);
 
     bool isPaused = false;
 
